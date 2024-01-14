@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			 window.onload = () => {
+        const mobileMenuIcon = document.getElementById("mobile-menu-button");
+        mobileMenuIcon.addEventListener("click", () => {
+          if (mobileMenuIcon.classList.contains("open")) {
+            mobileMenuIcon.classList.remove("open");
+          } else {
+            mobileMenuIcon.classList.add("open");
+          }
+        });
+		</script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							clifford: "#da373d",
+						},
+					},
+				},
+				plugins: [require("../plugins/openVariants.js")],
+			};
+		</script>
+		<style type="text/tailwindcss">
+			@layer utilities {
+				.content-auto {
+					content-visibility: auto;
+				}
+			}
+			@layer base {
+				html {
+					font-family: "Quicksand", sans-serif;
+					line-height: 1.5;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+				}
+				h1 {
+					@apply text-6xl font-bold;
+				}
+				h2 {
+					@apply text-5xl font-bold;
+				}
+				h3 {
+					@apply text-4xl font-bold;
+				}
+				h4 {
+					@apply text-3xl font-bold;
+				}
+				h5 {
+					@apply text-2xl font-bold;
+				}
+				h6 {
+					@apply text-xl font-bold;
+				}
+			}
+			@layer components {
+				.btn-nav {
+					@apply relative flex h-full cursor-pointer items-center p-6 text-pink-200 font-bold hover:text-zinc-700 hover:bg-white/15 transition-colors;
+				}
+			}
+		</style>
+		<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+	</head>
+	<body>
+		<main>
+			<header>
+				<nav
+					class="sticky flex top-0 bg-gradient-to-r from-rose-200 to-pink-500"
+				>
+					<div class="flex items-center p-2 gap-2">
+						<img
+							src="/src/assets/images/logo.png"
+							width="50"
+							alt="Loco compania"
+						/>
+						<div class="text-2xl font-bold">
+							<h1 class="text-2xl font-bold">Logo Compañia</h1>
+							<h2 class="text-sm font-semibold">
+								Tu tienda de confianza
+							</h2>
+						</div>
+					</div>
+					<!-- Menu de navegacion mobile -->
+					<div class="block md:hidden ml-auto pr-4 my-auto cursor-pointer">
+						<div id="mobile-menu-button" class="group">
+							<div class="group-open:rotate-45 h-1 w-8 rounded-full bg-pink-200 group-open"></div>
+							<div class="opacity-100 group-open:opacity-0 h-1 w-8 rounded-full bg-pink-200 mt-1"></div>
+							<div class="group-open:-rotate-45 h-1 w-8 rounded-full bg-pink-200 mt-1"></div>
+						</div>
+					</div>
+					<!-- Menu de navegacion Escritorio -->
+					<div class="md:flex flex-1 hidden items-center justify-end"></div>
+						<p class="btn-nav">Texto 1</p>
+						<p class="btn-nav">Texto 2</p>
+						<p class="btn-nav">Texto 3</p>
+						<p class="btn-nav">Texto 4</p>
+							<div class="hidden bg-pink-600 absolute top-full right-0 whitespace-nowrap rounded-b-md text-right">
+							<div>
+								<p class="font-bold p-4 hover:bg-white/5 transition-colors ease-in cursor-pointer text-pink-800">
+								Sub menu 1
+								</p>
+						</div>
+							</div>
+
+					</div>
+				</nav>
+				<!-- Segundo nav -->
+				<nav class="stiky top-0 flex bg-green-300 p-2 gap-2">
+					<div class="bg-yellow-300 flex items-center p-1 gap-1">
+						<img
+							src="/src/assets/images/logo.png"
+							width="50"
+							alt="Loco compania"
+						/>
+						
+							<p>Home</p>
+						
+					</div>
+					<div class="flex flex-1 items-center justify-end gap-3">
+						<ul class="flex items-center justify-center gap-4">
+							<li class="font-bold flex h-full items-center cursor-pointer hover:bg-green-700 hover:text-zinc-700 hover:bg-white/10 transition-colors">Inicio</li>
+							<li>Nosotros</li>
+					
+							<li>Contactenos</li>
+							<li>Formulario</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<div class="bg-slate-300 bg-[url('./assets/images/hero-image.jpg')] bg-cover bg-center bg-fixed flex flex-col items-center justify-center min-h-[400px]: h-[calc(100vh-300px)]">
+				<img class="w-12 invert" src="./assets/images/musica.png" alt="">
+				<div class="bg-white/30 py-2 px-4 rounded-xl text-center backdrop-blur-md">
+					<h1 class="text-4xl font-bold text-white">
+						¡Bienvenido a la tienda de musica!
+					</h1>
+					<p class="text-white text-xl">
+						Encuentra todo lo que necesitas para tu concierto
+					</p>
+				</div>
+				<form class="mt-3 flex gap-2 text-pink-600">
+					<input class="rounded-xl border border'white-40 bg-white/3 font-bold placeholder:text-pink-700 backdrop-blur-md p-2 caret-pink-700 outline-pink-600 focus:outline-pink-700" type="email" placeholder="Correo electrónico">
+					<button type="submit" class="cursor-pointer rounded-xl text-white bg-green-500 py-2 px-4 font-bold ho" >Suscribirse</button>
+				</form>
+			</div>
+			<!--Pantalla de fotos-->
+			<div class="max-w-screen-lg mx-auto mt-20">
+				<h2 class="h2">Grupos musicales</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eius omnis at amet enim incidunt similique</p>
+				<div class="mt-4 flex w-full gap-4 pb-5 snap-x overflow-x-auto ">
+					<div class="min-w-[80%] bg-pink-50 md:min-w-[40%]">
+						<div class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20 bg-[url('./assets/images/gallery-01.jpg')]">
+						</div>
+						<h5>Billy Elish</h5>
+						<p>29 de marzo de 2024</p>
+					</div>
+					<div class="min-w-[80%] bg-pink-50 md:min-w-[40%]">
+						<div class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20 bg-[url('./assets/images/gallery-02.jpg')]">
+						</div>
+						<h5>Massive Attack</h5>
+						<p>29 de marzo de 2024</p>
+					</div>
+					<div class="min-w-[80%] bg-pink-50 md:min-w-[40%]">
+						<div class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20 bg-[url('./assets/images/gallery-03.jpg')]">
+						</div>
+						<h5>Yeah Yeah Yeah</h5>
+						<p>29 de marzo de 2024</p>
+					</div>
+					
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
